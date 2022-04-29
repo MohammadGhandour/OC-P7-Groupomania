@@ -1,9 +1,6 @@
 # OC-P7-Groupomania
 Un résau social d'une entreprise, avec Vue, Node, MySQL.
 
-# OC-P7-Groupomaina
-Un résau social d'une entreprise, avec Vue, Node, MySQL.
-
 ## Installation du projet GitHub:
 1- Executez la commande Git git clone https://github.com/MohammadGhandour/OC-P7-Groupomaina.git
 2- Placez vous maintenant dans le dossier du projet cd OC-P7-Groupomania
