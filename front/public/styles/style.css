@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: roboto;
+}
+
+.img-logo {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.content {
+  background: #eee;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+  color: #333;
+}
+
+.router-connection {
+  color: #0072ca;
+  text-decoration: none;
+}
+
+.router-connection:hover {
+  text-decoration: underline;
+  color: #2197F3;
+}
+
+.message {
+  font-weight: bold;
+}
+.error {
+  color: #cb0029;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+    margin: auto;
+  }
+  .content {
+    width: 100%;
+  }
+  .img-logo {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .container {
+    min-width: 800px;
+    margin: auto;
+  }
+}

@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    padding-top: 65px;
+}
+
+.profile-infos {
+    background: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+    color: #333;
+}
+
+.user-image {
+    width: 125px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.form-row {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.form-row label {
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.form-row input{
+    margin-top: 5px;
+    width: 100%;
+    background: #eee;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    border-radius: 5px;
+    padding: 9px;
+    font-size: 16px;
+}
+form input:focus {
+    outline: 1px solid crimson;
+}
+form>*:first-child {
+    align-items: center;
+}
+form>*:first-child label {
+    background-color: #404756;
+    color: #eee;
+    padding: 7.5px;
+    border-radius: 5px;
+    margin-bottom: 0;
+    margin-top: 15px;
+    transition: all 0.1s;
+}
+
+form>*:first-child label:hover {
+    background-color: #4f5767;
+}
+
+#profileInput {
+    display: none;
+}
+
+.btn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eee;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.1s;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.edit-btn {
+    background-color: #0072ca;
+}
+
+.delete-btn {
+    background-color: #cb0029;
+}
+
+.edit-btn:hover {
+    background-color: #2197F3;
+}
+
+.delete-btn:hover {
+    background-color: crimson;
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        min-width: 800px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 100%;
+    }
+}
