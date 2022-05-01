@@ -11,32 +11,6 @@ export default {
         const body = document.querySelector('body');
         body.style.background = '#ECECEC'
         body.style.setProperty('--onAnotherPages', 'relative');
-        const connectedUserId  = localStorage.getItem('userId');
-        const connectedUserStatus = localStorage.getItem('admin');
-        this.connectedUserId = connectedUserId;
-        this.connectedUserStatus = connectedUserStatus;
-
-        const userId = JSON.parse(localStorage.getItem('userId'));
-        if (userId) {
-            const token = localStorage.getItem('token');
-            this.loggedInStatus = true;
-
-            Axios.get(urlApi + `/user/${userId}`)
-            .then((res) => {
-                const user = res.data;
-                this.id = user.id;
-                this.username = user.username
-                this.profileImage = user.profileImage;
-            })
-            .catch((err) => console.log(err));
-            
-            this.getAllPosts(token);
-            this.getAllComments(token);
-
-        } else {
-            this.loggedInStatus = false
-            this.$router.push("/");
-        }
     },
     unmounted() {
         const body = document.querySelector('body');
