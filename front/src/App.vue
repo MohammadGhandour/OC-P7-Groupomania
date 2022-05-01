@@ -1,6 +1,5 @@
 <template>
-
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
@@ -12,7 +11,7 @@
   color: #eee;
 }
 body {
-  background: url('../src/assets/background.webp');
+  background: url("../src/assets/background.webp");
   height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
@@ -21,7 +20,7 @@ body {
   position: relative;
 }
 body::after {
-  content: '';
+  content: "";
   position: var(--onAnotherPages, fixed);
   width: 100%;
   height: 100%;

@@ -88,7 +88,7 @@ exports.updateUser = (req, res) => {
             const username = req.body.username ? req.body.username : users[0].username;
             const email = req.body.email ? req.body.email : users[0].email;
             const profileImage = req.file ? `${req.protocol}://${req.get('host')}/images/${req.file.filename}` : users[0].profileImage;
-            
+
             if (req.file) {
                 db.query(`UPDATE users SET profileImage = "${profileImage}" WHERE id = ${userId}`, (err, result) => {
                     if (err) throw err;

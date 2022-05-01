@@ -75,7 +75,7 @@
                     <span for="comment">Commentaires</span>
                 </label>
             </div>
-            <div class="comment-section hidden">
+            <div class="comment-section">
                 <form class="new-comment" @submit.prevent="createComment">
                     <img :src="profileImage" alt="user-img" class="user-profile" title="Photo de profile">
                     <input type="text" name="comment" id="comment" placeholder="Ajouter un commentaire public !" v-model="newComment" required>

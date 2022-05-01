@@ -3,6 +3,16 @@ const helmet = require('helmet');
 const app = express();
 const path = require('path');
 const PORT = 3333;
+const db = require('./config/dbConfig.js');
+
+db.connect(function (err) {
+    if (err) {
+        console.log(err);
+        console.log("Couldn't connect to the Database !");
+    } else {
+        console.log("Connected to the Database !");
+    }
+})
 
 app.use(helmet());
 

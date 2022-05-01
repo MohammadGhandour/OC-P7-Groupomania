@@ -48,6 +48,11 @@ export default {
             imagePosted: ''
         }
     },
+    mounted() {
+        if (localStorage.getItem('token')) {
+            this.$router.push('/salon');
+        }
+    },
     methods: {
         showAddedImage(e) {
             const reader = new FileReader();

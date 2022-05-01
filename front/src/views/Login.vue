@@ -37,6 +37,11 @@ export default {
             error: ''
         }
     },
+    mounted() {
+        if (localStorage.getItem('token')) {
+            this.$router.push('/salon');
+        }
+    },
     methods: {
         login() {
             const user = {
