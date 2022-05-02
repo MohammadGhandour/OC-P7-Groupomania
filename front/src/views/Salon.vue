@@ -145,7 +145,14 @@ export default {
                 this.username = user.username
                 this.profileImage = user.profileImage;
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
+            });
             
             this.getAllPosts(token);
             this.getAllComments(token);
@@ -186,7 +193,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
-                this.error = err.response.data.error;
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
 
             this.$refs.myForm.reset();
@@ -210,6 +221,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         showEditPost(e) {
@@ -263,6 +279,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             });
 
             this.deletePostImage = false;
@@ -289,7 +310,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
-                this.commentError = err.response.data.error;
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         deleteComment(e) {
@@ -308,6 +333,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         showEditCommentForm(e) {
@@ -333,6 +363,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         handleLike(e) {
@@ -351,6 +386,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         getAllPosts(token) {
@@ -368,6 +408,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             });
         },
         getAllComments(token) {
@@ -385,6 +430,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         }
     }

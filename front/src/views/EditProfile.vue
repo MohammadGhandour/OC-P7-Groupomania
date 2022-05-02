@@ -91,7 +91,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
-                this.error = err.response.data.error;
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         getUserInfo(userId, token) {
@@ -106,6 +110,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
     }

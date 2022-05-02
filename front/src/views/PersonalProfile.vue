@@ -207,6 +207,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             });
 
             this.deletePostImage = false;
@@ -238,6 +243,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         editComment(e) {
@@ -257,6 +267,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         deleteComment(e) {
@@ -275,6 +290,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         showPostActions(e) {
@@ -296,6 +316,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         handleLike(e) {
@@ -315,6 +340,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         getUserPosts(userId, token) {
@@ -334,6 +364,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         },
         getAllComments(token) {
@@ -353,6 +388,11 @@ export default {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response) {
+                    this.error = err.response.data.error;
+                } else {
+                    this.error = "ERREUR SERVEUR ! Veuillez réessayer ultérieument !"
+                }
             })
         }
     }
