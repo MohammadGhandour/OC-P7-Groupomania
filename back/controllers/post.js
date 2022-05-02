@@ -258,30 +258,3 @@ exports.like = (req, res) => {
         }
     })
 }
-
-
-
-
-// let editedDesc = req.body.editedDesc;
-// let editedImage = req.file ? `${req.protocol}://${req.get('host')}/images/${req.file.filename}` : '';
-// const postId = req.params.id;
-// db.query(`SELECT * FROM posts WHERE id = '${postId}'`, (err, result) => {
-//     if (err) throw err;
-//     else {
-//         const originalPost = result[0];
-//         if (editedDesc == '') {
-//             editedDesc = originalPost.postContent;
-//         }
-//         if (editedImage == '') {
-//             editedImage = originalPost.postImage;
-//         }
-//         if (editedDesc == '' && editedImage == '') {
-//             console.log('Nothing to update');
-//             return
-//         };
-//         db.query(`UPDATE posts SET postContent = '${editedDesc}', postImage = '${editedImage}' WHERE id = '${postId}'`, (err, result) => {
-//             if (err) throw err;
-//             res.status(200).json({ message: 'Votre publication a bien été modifié !' })
-//         })
-//     }
-// })
