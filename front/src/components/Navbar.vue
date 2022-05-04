@@ -29,10 +29,8 @@ export default {
         logout() {
             localStorage.clear();
         },
-        handleScroll(e) {
+        handleScroll() {
             const header = document.querySelector('header');
-            const userImage = document.querySelector('.user-img');
-            const logo = document.querySelector('.logo');
             header.addEventListener('mouseover', () => {
                 header.style.opacity = '1';
             })
