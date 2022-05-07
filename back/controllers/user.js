@@ -78,6 +78,45 @@ exports.findOneUser = (req, res) => {
     })
 }
 
+exports.deleteUser = (req, res) => {
+    const userId = req.auth.userId;
+    const password = req.body.password;
+    db.query(`SELECT * FROM users WHERE id = ${userId}`, (err, users) => {
+        if (err) {
+            console.log(err);
+            res.status(404).json({ error: "Couldn't find user !" })
+        }
+        const user = users[0];
+        bcrypt.compare(password, user.password)
+            .then((valid) => {
+                if (!valid) {
+                    return res.status(401).json({ error: "Votre mot de passe est incorrect !" })
+                }
+                db.query(`DELETE FROM users WHERE id = ${userId}`, (err, success) => {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).json({ error: "Couldn't delete user !" })
+                        return
+                    }
+                    db.query(`DELETE FROM posts WHERE userId = ${userId}`, (err, success) => {
+                        if (err) {
+                            console.log(err);
+                            res.status(500).json({ error: "Couldn't delete posts related to this user !" })
+                        }
+                        db.query(`DELETE FROM comments WHERE userId = ${userId}`, (err, success) => {
+                            if (err) {
+                                console.log(err);
+                                res.status(500).json({ error: "Couldn't delete this user's comments !" })
+                            } else {
+                                res.status(200).json({ message: "This user's comments were deleted successfully !" })
+                            }
+                        })
+                    })
+                })
+            })
+    })
+}
+
 exports.updateUser = (req, res) => {
     const userId = req.auth.userId;
     db.query(`SELECT * FROM users WHERE id = ${userId}`, (err, users) => {
@@ -161,44 +200,5 @@ exports.updateUser = (req, res) => {
                 })
             }
         }
-    })
-}
-
-exports.deleteUser = (req, res) => {
-    const userId = req.auth.userId;
-    const password = req.body.password;
-    db.query(`SELECT * FROM users WHERE id = ${userId}`, (err, users) => {
-        if (err) {
-            console.log(err);
-            res.status(404).json({ error: "Couldn't find user !" })
-        }
-        const user = users[0];
-        bcrypt.compare(password, user.password)
-            .then((valid) => {
-                if (!valid) {
-                    return res.status(401).json({ error: "You're not allowed to make this request, please don't try to access a user other than your own !" })
-                }
-                db.query(`DELETE FROM users WHERE id = ${userId}`, (err, success) => {
-                    if (err) {
-                        console.log(err);
-                        res.status(500).json({ error: "Couldn't delete user !" })
-                        return
-                    }
-                    db.query(`DELETE FROM posts WHERE userId = ${userId}`, (err, success) => {
-                        if (err) {
-                            console.log(err);
-                            res.status(500).json({ error: "Couldn't delete posts related to this user !" })
-                        }
-                        db.query(`DELETE FROM comments WHERE userId = ${userId}`, (err, success) => {
-                            if (err) {
-                                console.log(err);
-                                res.status(500).json({ error: "Couldn't delete this user's comments !" })
-                            } else {
-                                res.status(200).json({ message: "This user's comments were deleted successfully !" })
-                            }
-                        })
-                    })
-                })
-            })
     })
 }
