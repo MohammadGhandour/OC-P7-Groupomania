@@ -108,12 +108,10 @@ exports.deletePost = (req, res) => {
     const userId = req.auth.userId
     db.query(`SELECT *, posts.id AS postId FROM posts, users WHERE posts.id = '${postId}' AND users.id = '${userId}'`, (err, results) => {
         if (err) {
-            console.log(err);
+            throw err
         }
         if (results.length < 1) {
             res.status(404).json({ error: "Couldn't find post !" })
-            console.log(results);
-            console.log("Couldn't find post !!!");
         }
         let postImage = null;
         if (results[0].postImage !== '') {
@@ -122,13 +120,11 @@ exports.deletePost = (req, res) => {
         if (results[0].id == results[0].userId || results[0].admin == 1) {
             db.query(`DELETE FROM posts WHERE id = ${postId}`, (err, results) => {
                 if (err) {
-                    console.log(err);
-                    res.status(500).json({ error: "We couldn't delete your post !" })
+                    throw err
                 } else {
                     db.query(`DELETE FROM comments WHERE postId = ${postId}`, (err, results) => {
                         if (err) {
-                            console.log(err);
-                            res.status(500).json({ error: "Couldn't delete comments related to this post !" })
+                            throw err
                         } else {
                             res.status(200).json({ message: "This post's comments has been deleted successfully !" })
                         }
