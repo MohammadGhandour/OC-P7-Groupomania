@@ -2,6 +2,7 @@
     <Navbar :username="user.username" :profileImage="user.profileImage"/>
     <div class="container">
         <div class="delete-content">
+            <div class="message error" v-if="error">{{ error }}</div>
             <div class="warning"><i class="fa-solid fa-circle-exclamation"></i> Cette action est irréversible ! Toutes vos données seront supprimées !</div>
             <form @submit.prevent="deleteProfile" class="form-row">
                 <label for="password">Confirmer votre mot de passe: </label>
@@ -23,7 +24,8 @@ export default {
     data() {
         return {
             user: {},
-            password: ''
+            password: '',
+            error: ''
         }
     },
     mounted() {
